@@ -1,9 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
+import dotenv from "dotenv";
 import router from "./routes/index.js";
+
 const app = express();
 
-const port = 7873;
+dotenv.config()
+
+const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
     res.send('Hello World')

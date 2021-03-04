@@ -1,5 +1,5 @@
 import express from "express";
-import { addMember, viewAllMember, viewMember, updateMember, deleteMember } from '../controllers/membersController.js'
+import { addMember, viewAllMembers, viewMember, updateMember, deleteMember } from '../controllers/membersController.js'
 
 const membersRouter = express.Router();
 
@@ -10,7 +10,7 @@ membersRouter.post("/", addMember);
 membersRouter.get("/:id", viewMember);
 
 //View all members members/
-membersRouter.get("/", viewAllMember);
+membersRouter.get("/", viewAllMembers);
 
 //Update member record members/
 membersRouter.put("/", updateMember);
