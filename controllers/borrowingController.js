@@ -84,13 +84,13 @@ export async function returnBook(req, res) {
         if (updatedBorrow) {
             res.json({
                 success: true,
-                message: 'Book records updated successfully',
+                message: 'Borrowing records updated successfully',
                 data: updatedBorrow
             })
         } else {
             res.json({
                 success: true,
-                message: 'No Book records found.',
+                message: 'No borrowing records found.',
             })
         }
     } catch (err) {
@@ -109,13 +109,13 @@ export async function viewMemberBorrowings(req, res) {
         if (memberBorrowings) {
             res.json({
                 success: true,
-                message: 'Book records retrieved successfully',
+                message: 'Borrowing records retrieved successfully',
                 data: memberBorrowings
             })
         } else {
             res.json({
                 success: true,
-                message: 'No Book records found.',
+                message: 'No Borrowing records found.',
             })
         }
     } catch (err) {
