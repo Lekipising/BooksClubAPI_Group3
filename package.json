@@ -12,7 +12,7 @@
     "Bookclub",
     "API"
   ],
-  "author": "Bobson Rugambwa",
+  "author": "Catherine Muthoni and Liplan Lekipising",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",

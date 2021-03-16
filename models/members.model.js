@@ -3,37 +3,37 @@ import { sequelize } from "../db/dbConnect.js";
 
 
 const Member = sequelize.define('member', {
-    ID: {
+    member_id: {
         autoincrement: true,
         type: Sequelize.INTEGER,
         allowNull: true,
         primaryKey: true
     },
-    Name: {
+    member_name: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    Gender: {
+    member_name: {
         type: Sequelize.STRING(6),
         allowNull: false
     },
-    Email: {
+    member_email: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    Phone: {
+    member_phone: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    DOB: {
+    member_dob: {
         type: Sequelize.DATE,
         allowNull: false
     },
-    Address: {
+    member_address: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    ReferralId: {
+    member_referralId: {
         type: Sequelize.INTEGER,
         allowNull: true
     }
@@ -45,7 +45,7 @@ const Member = sequelize.define('member', {
         name: "PRIMARY",
         unique: true,
         fields: [
-            { name: "ID" }
+            { name: "member_id" }
         ]
     }]
 });
