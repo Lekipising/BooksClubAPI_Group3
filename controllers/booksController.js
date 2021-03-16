@@ -1,20 +1,20 @@
-import Member from "../models/members.model.js";
+import Books from "../models/books.model.js"
 
 
-//Add a Member
-export async function addMember(req, res) {
+//Add a Book
+export async function addBook(req, res) {
     try {
-        let member = await Member.create(req.body);
-        if (member) {
+        let book = await Books.create(req.body);
+        if (book) {
             res.status(200).json({
                 success: true,
-                message: 'Member created successfully',
-                data: member
+                message: 'Book created successfully',
+                data: book
             })
         } else {
             res.status(200).json({
                 success: true,
-                message: 'Member could not be created at this time'
+                message: 'Book could not be created at this time'
             })
         }
     } catch (err) {
@@ -26,20 +26,20 @@ export async function addMember(req, res) {
     }
 }
 
-//View a member
-export async function viewMember(req, res) {
+//View a book
+export async function viewBook(req, res) {
     try {
-        let allmembers = await Member.findAll({where: {member_id: req.params.id}});
-        if (allmembers) {
+        let allbooks = await Books.findAll({where: {ID: req.params.id}});
+        if (allbooks) {
             res.json({
                 success: true,
-                message: 'Member records retrieved successfully',
-                data: allmembers
+                message: 'Book records retrieved successfully',
+                data: allbooks
             })
         } else {
             res.json({
                 success: true,
-                message: 'No Member records found.',
+                message: 'No Book records found.',
             })
         }
     } catch (err) {
@@ -51,20 +51,20 @@ export async function viewMember(req, res) {
     }
 }
 
-//View all members
-export async function viewAllMembers(req, res) {
+//View all books
+export async function viewAllBooks(req, res) {
     try {
-        let allmembers = await Member.findAll();
-        if (allmembers) {
+        let allbooks = await Books.findAll();
+        if (allbooks) {
             res.json({
                 success: true,
-                message: 'Member records retrieved successfully',
-                data: allmembers
+                message: 'Book records retrieved successfully',
+                data: allbooks
             })
         } else {
             res.json({
                 success: true,
-                message: 'No Member records found.',
+                message: 'No Book records found.',
             })
         }
     } catch (err) {
@@ -76,21 +76,21 @@ export async function viewAllMembers(req, res) {
     }
 }
 
-//Update member record
-export async function updateMember(req, res) {
+//Update book record
+export async function updateBook(req, res) {
     try {
         
-        let updatedmember = await Member.update(req.body,{where:{member_id: req.params.id}});
-        if (updatedmember) {
+        let updatedBook = await Books.update(req.body,{where:{ID: req.params.id}});
+        if (updatedBook) {
             res.json({
                 success: true,
-                message: 'Member records updated successfully',
-                data: updatedmember
+                message: 'Book records updated successfully',
+                data: updatedBook
             })
         } else {
             res.json({
                 success: true,
-                message: 'No Member records found.',
+                message: 'No Book records found.',
             })
         }
     } catch (err) {
@@ -102,23 +102,23 @@ export async function updateMember(req, res) {
     }
 }
 
-//Delete a member
-export async function deleteMember(req, res) {
+//Delete a book
+export async function deleteBook(req, res) {
     try {
         
-        let memberToDelete = await Member.findAll({where:{member_id:req.params.id}});
-        if (memberToDelete) {
-            let deletedMember = await Member.destroy({where:{member_id:req.params.id}});
-            if (deletedMember){
+        let bookToDelete = await Books.findAll({where:{ID:req.params.id}});
+        if (bookToDelete) {
+            let deletedBook = await Books.destroy({where:{ID:req.params.id}});
+            if (deletedBook){
                 res.json({
                     success: true,
-                    message: 'Member records deleted successfully',
+                    message: 'Book records deleted successfully',
                     
                 })
             } else {
                 res.json({
                     success: true,
-                    message: 'No Member records found.',
+                    message: 'No Book records found.',
                 })
             }
 

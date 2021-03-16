@@ -2,52 +2,46 @@ import Sequelize from "sequelize";
 import { sequelize } from "../db/dbConnect.js";
 
 
-const Member = sequelize.define('member', {
-    member_id: {
+const Borrowing = sequelize.define('borrowing', {
+    borrowing_id: {
         autoincrement: true,
         type: Sequelize.INTEGER,
         allowNull: true,
         primaryKey: true
     },
-    member_name: {
+    borrower_name: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    member_gender: {
+    borrowed_title: {
         type: Sequelize.STRING(6),
         allowNull: false
     },
-    member_email: {
-        type: Sequelize.STRING(255),
+    borrow_date: {
+        type: Sequelize.DATE(),
         allowNull: true
     },
-    member_phone: {
-        type: Sequelize.STRING(255),
+    return_date: {
+        type: Sequelize.DATE(),
         allowNull: false
     },
-    member_dob: {
-        type: Sequelize.DATE,
-        allowNull: false
-    },
-    member_address: {
-        type: Sequelize.STRING(255),
-        allowNull: false
-    },
-    member_referralId: {
-        type: Sequelize.INTEGER,
-        allowNull: true
+    hasreturn:{
+        type: Sequelize.BOOLEAN(),
+        allowNull: false,
+        defaultValue: 0
     }
+    
 }, {
     sequelize,
-    tableName: 'members',
+    tableName: 'borrowing',
     timestamps: false,
     indexes: [{
         name: "PRIMARY",
         unique: true,
         fields: [
-            { name: "member_id" }
+            { name: "borrowing_id" }
         ]
     }]
 });
 
-export default Member;
+export default Borrowing;

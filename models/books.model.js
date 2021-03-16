@@ -1,33 +1,34 @@
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
+import {sequelize} from "../db/dbConnect.js";
 
 const Books = sequelize.define('member', {
-  book_id: {
+  ID: {
     autoIncrement: true,
     type: Sequelize.BIGINT,
     allowNull: false,
     primaryKey: true
   },
-  title: {
+  Title: {
     type: Sequelize.STRING(255),
     allowNull: false
   },
-  author: {
+  Author: {
     type: Sequelize.STRING(255),
     allowNull: false
   },
-  publish_date: {
+  Publication_date: {
     type: Sequelize.DATEONLY,
     allowNull: false
   },
-  isbn: {
+  ISBN: {
     type: Sequelize.STRING(255),
     allowNull: false
   },
-  no_of_copies: {
+  Copies: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  genre: {
+  Genre: {
     type: Sequelize.STRING(255),
     allowNull: false
   }
@@ -41,7 +42,7 @@ const Books = sequelize.define('member', {
       unique: true,
       using: "BTREE",
       fields: [
-        { name: "book_id" },
+        { name: "ID" },
       ]
     },
   ]
