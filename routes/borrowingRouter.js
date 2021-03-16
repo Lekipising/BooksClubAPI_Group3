@@ -1,22 +1,22 @@
 import express from "express";
-import { addBorrowing, viewAllBorrowings, viewBorrowing, updateBorrowing, deleteBorrowing } from '../controllers/borrowingController.js'
+import { addBorrowing, viewAllBorrowings, viewBorrowing, viewMemberBorrowings, returnBook } from '../controllers/borrowingController.js'
 
 const borrowingRouter = express.Router();
 
 //Add a Borrowing
-membersRouter.post("/", addBorrowing);
+borrowingRouter.post("/", addBorrowing);
 
 //View a member members/:id
-membersRouter.get("/:id", viewBorrowing);
+borrowingRouter.get("/:id", viewBorrowing);
 
 //View all members members/
-membersRouter.get("/", viewAllBorrowings);
+borrowingRouter.get("/", viewAllBorrowings);
 
-//Update member record members/
-membersRouter.put("/", updateBorrowing);
+//Return book members/
+borrowingRouter.put("/:id", returnBook);
 
-//Delete a member members/:id
-membersRouter.delete("/:id", deleteBorrowing);
+//View all borrowings of a particular member
+borrowingRouter.get("/:borrower_name", viewMemberBorrowings);
 
 export default borrowingRouter;
 

@@ -13,13 +13,13 @@ const Member = sequelize.define('member', {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    member_name: {
+    member_gender: {
         type: Sequelize.STRING(6),
         allowNull: false
     },
     member_email: {
         type: Sequelize.STRING(255),
-        allowNull: false
+        allowNull: true
     },
     member_phone: {
         type: Sequelize.STRING(255),

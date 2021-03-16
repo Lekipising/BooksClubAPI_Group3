@@ -13,7 +13,7 @@ booksRouter.get("/:id", viewBook);
 booksRouter.get("/", viewAllBooks);
 
 //Update member record books/
-booksRouter.put("/", updateBook);
+booksRouter.put("/:id", updateBook);
 
 //Delete a member books/:id
 booksRouter.delete("/:id", deleteBook);

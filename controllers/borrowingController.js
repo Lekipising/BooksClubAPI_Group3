@@ -77,13 +77,53 @@ export async function viewAllBorrowings(req, res) {
 }
 
 //Update borrowing record
-export function updateBorrowing(req, res) {
-    console.log(req.body);
-    res.send(req.body)
+export async function returnBook(req, res) {
+    try {
+        
+        let updatedBorrow = await Borrowing.update(req.body,{where:{borrowing_id: req.params.id}});
+        if (updatedBorrow) {
+            res.json({
+                success: true,
+                message: 'Book records updated successfully',
+                data: updatedBorrow
+            })
+        } else {
+            res.json({
+                success: true,
+                message: 'No Book records found.',
+            })
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: "Oopss! Something is wrong..."
+        })
+    }
 }
+//View all borrowings of a particular member
+export async function viewMemberBorrowings(req, res) {
+    try {
+        
+        let memberBorrowings = await Borrowing.findAll({where:{borrower_name: req.params.borrower_name}});
+        if (memberBorrowings) {
+            res.json({
+                success: true,
+                message: 'Book records retrieved successfully',
+                data: memberBorrowings
+            })
+        } else {
+            res.json({
+                success: true,
+                message: 'No Book records found.',
+            })
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: "Oopss! Something is wrong..."
+        })
+    }
 
-//Delete a borrowing
-export function deleteBorrowing(req, res) {
-    console.log(req.body);
-    res.send(req.body)
 }

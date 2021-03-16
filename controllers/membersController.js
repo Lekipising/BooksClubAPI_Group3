@@ -29,7 +29,7 @@ export async function addMember(req, res) {
 //View a member
 export async function viewMember(req, res) {
     try {
-        let allmembers = await Member.findAll({where: {ID: req.params.id}});
+        let allmembers = await Member.findAll({where: {member_id: req.params.id}});
         if (allmembers) {
             res.json({
                 success: true,
@@ -80,7 +80,7 @@ export async function viewAllMembers(req, res) {
 export async function updateMember(req, res) {
     try {
         
-        let updatedmember = await Member.update({Name:"Peter",Gender:"M"},{where:{ID: 1}});
+        let updatedmember = await Member.update(req.body,{where:{member_id: req.params.id}});
         if (updatedmember) {
             res.json({
                 success: true,
@@ -106,9 +106,9 @@ export async function updateMember(req, res) {
 export async function deleteMember(req, res) {
     try {
         
-        let memberToDelete = await Member.findAll({where:{ID:req.params.id}});
+        let memberToDelete = await Member.findAll({where:{member_id:req.params.id}});
         if (memberToDelete) {
-            let deletedMember = await Member.destroy({where:{ID:req.params.id}});
+            let deletedMember = await Member.destroy({where:{member_id:req.params.id}});
             if (deletedMember){
                 res.json({
                     success: true,

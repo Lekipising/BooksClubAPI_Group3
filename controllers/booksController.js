@@ -80,7 +80,7 @@ export async function viewAllBooks(req, res) {
 export async function updateBook(req, res) {
     try {
         
-        let updatedBook = await Books.update({Title:"Things Fall Apart",Author:"Chinua Achebe"},{where:{ID: 1}});
+        let updatedBook = await Books.update(req.body,{where:{ID: req.params.id}});
         if (updatedBook) {
             res.json({
                 success: true,
