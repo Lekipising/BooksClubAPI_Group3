@@ -2,39 +2,39 @@ import Sequelize from "sequelize";
 import { sequelize } from "../db/dbConnect.js";
 
 const Member = sequelize.define('member', {
-    member_id: {
+    ID: {
         autoincrement: true,
         type: Sequelize.INTEGER,
         allowNull: true,
         primaryKey: true
     },
-    member_name: {
+    Name: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    member_gender: {
+    Gender: {
         type: Sequelize.STRING(6),
         allowNull: false
     },
-    email_address: {
+    Email: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    telephone_number: {
+    Phone: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    date_of_birth: {
+    DOB: {
         type: Sequelize.DATE,
         allowNull: false
     },
-    address: {
+    Address: {
         type: Sequelize.STRING(255),
         allowNull: false
     },
-    referral_id: {
+    ReferralId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     }
 }, {
     sequelize,
@@ -44,7 +44,7 @@ const Member = sequelize.define('member', {
         name: "PRIMARY",
         unique: true,
         fields: [
-            { name: "member_id" }
+            { name: "ID" }
         ]
     }]
 });
